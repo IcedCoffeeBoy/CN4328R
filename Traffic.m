@@ -23,6 +23,13 @@ end
 function ret = movement(t,z)
 num_particles = length(z)/4;
 ret=zeros(1,length(z));
+positions = zeros(num_particles,2)
+
+for i = 1:num_particles
+    positions(i,1) = z((i-1)*4+1);
+    positions(i,2) = z((i-1)*4+3);
+end
+
 for i = 1:num_particles
     ret(1+(i-1)*4) = z(2+(i-1)*4);
     ret(2+(i-1)*4) = 1 - 0.1*(z(2+(i-1)*4)^2);
